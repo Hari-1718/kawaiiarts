@@ -4,7 +4,7 @@ import '../styles/Contact.css';
 const Contact = () => (
   <div className="contact-container">
     <div className="contact-card">
-      <h1>Contact Us 📩</h1>
+      <h1>Contact Us <span className="contact-mail-icon" style={{verticalAlign: 'middle', marginLeft: '6px', display: 'inline-block'}}><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mailRadial" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="#fffbe6"/><stop offset="60%" stop-color="#ffb6ec"/><stop offset="100%" stop-color="#b7e3ed"/></radialGradient></defs><rect width="36" height="36" rx="10" fill="url(#mailRadial)"/><g filter="url(#mailShadow)"><path d="M10 14l8 6 8-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><rect x="10" y="12" width="16" height="12" rx="3" stroke="#fff" strokeWidth="2.5" fill="none"/></g><defs><filter id="mailShadow" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#b7e3ed"/></filter></defs></svg></span></h1>
       <p>Got a question or want to place a custom order?</p>
       <p>We’d love to hear from you!</p>
 

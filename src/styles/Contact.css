@@ -104,6 +104,20 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.contact-mail-icon {
+  transition: transform 0.2s;
+}
+.contact-mail-icon:hover {
+  animation: bounce 0.5s;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-10px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .contact-card {
