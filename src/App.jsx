@@ -1,0 +1,31 @@
+import React from 'react';
+
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Gallery from './pages/Gallery';
+import Shop from './pages/Shop';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+import Ecommerce from './pages/Ecommerce';
+import './styles/global.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/ecommerce" element={<Ecommerce />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+}
+
+export default App;

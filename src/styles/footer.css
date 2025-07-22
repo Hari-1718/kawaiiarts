@@ -1,0 +1,39 @@
+/* footer.css */
+:root {
+  --footer-bg: #f4f9f9;
+  --footer-text: #2f2f2f;
+  --footer-brand: #2d677f;
+  --footer-link: #4682B4;
+  --footer-link-hover: #6fa4be;
+  --shadow-soft: rgba(0, 0, 0, 0.05);
+  --rounded: 16px;
+}
+
+.footer {
+  background: var(--footer-bg);
+  padding: 1.5em 1em;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--footer-text);
+  box-shadow: 0 -2px 6px var(--shadow-soft);
+  border-top: 1px solid #ddeeee;
+  margin-top: 3em;
+  border-radius: var(--rounded) var(--rounded) 0 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--footer-link);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--footer-link-hover);
+}
+
+.footer-brand {
+  font-weight: bold;
+  color: var(--footer-brand);
+  font-family: 'Quicksand', sans-serif;
+}

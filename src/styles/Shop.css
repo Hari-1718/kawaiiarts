@@ -1,0 +1,119 @@
+:root {
+  --shop-bg: #f6fbfc;
+  --card-bg: #ffffffee;
+  --text-color: #2f2f2f;
+  --heading-color: #244d5f;
+  --shadow-soft: rgba(0, 0, 0, 0.05);
+  --hover-shadow: rgba(176, 226, 245, 0.4);
+  --highlight: #d8f3f9;
+  --rounded: 18px;
+}
+
+/* SHOP CONTAINER */
+.shop-container {
+  background: linear-gradient(135deg, var(--shop-bg), #edf6f6);
+  padding: 4em 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* MAIN CONTENT */
+.shop-content {
+  max-width: 1000px;
+  background: var(--card-bg);
+  padding: 2.5em 2em;
+  border-radius: var(--rounded);
+  box-shadow: 0 6px 18px var(--shadow-soft);
+  text-align: center;
+  animation: fadeInShop 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px var(--hover-shadow);
+}
+
+.shop-content h1 {
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.shop-subtext {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* GRID LAYOUT */
+.shop-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.5em;
+}
+
+/* SHOP ITEMS */
+.shop-item {
+  background: var(--card-bg);
+  padding: 1.8em 1em;
+  border-radius: var(--rounded);
+  box-shadow: 0 4px 12px var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.shop-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 20px var(--hover-shadow);
+  background: var(--highlight);
+}
+
+/* PLACEHOLDER */
+.placeholder {
+  background: linear-gradient(135deg, #eafcfc, #f9fefb);
+  color: #3a3a3a;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  border: 1px dashed #b7dfe8;
+  padding: 1.5em 1em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .shop-content h1 {
+    font-size: 2rem;
+  }
+  .shop-subtext {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-container {
+    padding: 3em 1em;
+  }
+  .shop-content {
+    padding: 2em 1em;
+  }
+  .shop-content h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ANIMATION */
+@keyframes fadeInShop {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
