@@ -55,13 +55,13 @@ const Shop = () => (
             <button
               style={{
                 marginTop: '12px',
-                padding: '12px 28px',
+                padding: '8px 18px', // reduced padding
                 background: '#25D366',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '24px',
                 fontWeight: 'bold',
-                fontSize: '1.1rem',
+                fontSize: '0.95rem', // reduced font size
                 cursor: 'pointer',
                 boxShadow: '0 4px 16px rgba(37, 211, 102, 0.15)',
                 display: 'flex',
