@@ -9,7 +9,7 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import './styles/global.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Ecommerce from './pages/Ecomerce';
+import Ecommerce from './pages/Ecom';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/ecommerce" element={<Ecommerce />} />
+        <Route path="/ecommerce" element={<Ecommerce/>} />
       </Routes>
       <Footer />
     </Router>
