@@ -118,6 +118,29 @@
   100% { transform: translateY(0); }
 }
 
+.review-btn {
+  margin: 2em auto 0 auto;
+  display: block;
+  background: var(--accent-blue);
+  color: var(--heading-color);
+  font-family: 'Quicksand', 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 0.9em 2.2em;
+  border: none;
+  border-radius: var(--rounded);
+  box-shadow: 0 4px 12px var(--shadow-soft);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+  z-index: 2;
+}
+.review-btn:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  box-shadow: 0 6px 18px var(--shadow-hover);
+  transform: translateY(-2px) scale(1.04);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .contact-card {

@@ -46,6 +46,15 @@ const Contact = () => (
           </a>
         </p>
         <p className="note">* We usually reply within 1–2 business days 📆</p>
+        <a
+          href="https://instagram.com/kawaiiarts_16"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="review-btn"
+          aria-label="Leave a review on Instagram (opens in a new tab)"
+        >
+          Leave a Review
+        </a>
       </div>
     </div>
   </div>
