@@ -3,6 +3,16 @@ import '../styles/home.css';
 
 const Home = () => (
   <div className="home">
+    <svg className="string-art-bg" width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+      <g strokeWidth="2">
+        <line x1="0" y1="0" x2="1200" y2="800" stroke="#b7e3ed" />
+        <line x1="0" y1="800" x2="1200" y2="0" stroke="#d8f6f0" />
+        <line x1="600" y1="0" x2="600" y2="800" stroke="#faf8f1" />
+        <line x1="0" y1="400" x2="1200" y2="400" stroke="#b7e3ed" />
+        <line x1="300" y1="0" x2="900" y2="800" stroke="#d8f6f0" />
+        <line x1="900" y1="0" x2="300" y2="800" stroke="#faf8f1" />
+      </g>
+    </svg>
     <section className="hero">
       <h1>Welcome to the Kawaii Art World! 🌈</h1>
       <p>
