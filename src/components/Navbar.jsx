@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/navbar.css';
-import logo from '../assets/kawaiiarts logo.jpg';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +25,7 @@ const Navbar = () => {
         <span className={menuOpen ? 'bar open' : 'bar'}></span>
       </button>
       <div className="navbar-logo">
-        <img src={logo} alt="kawaiiarts Logo" height="40" style={{width : "40px" , height:"auto" , borderRadius:"60%"}}/>
+        <img src="/kawaiiarts logo.jpg" alt="kawaiiarts Logo" height="40" style={{width : "40px" , height:"auto" , borderRadius:"60%"}}/>
         <span className="brand">kawaiiarts</span>
       </div>
       <ul
