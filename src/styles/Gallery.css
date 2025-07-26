@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeInGallery 1s ease-out;
 }
 
 .gallery-header {
@@ -65,4 +66,16 @@
   height: auto;
   border-radius: var(--rounded);
   display: block;
+}
+
+/* Gallery fade-in animation */
+@keyframes fadeInGallery {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
