@@ -152,12 +152,12 @@
 
 .btn-secondary {
   background: #fef3c7;
-  color: #92400e;
-  border-color: #fbbf24;
+  color: #a47e66;
+  border-color: #b8b7b4;
 }
 
 .btn-secondary:hover {
-  background: #fbbf24;
+  background: #b59b58;
   color: white;
   transform: translateY(-3px);
 }
