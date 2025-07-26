@@ -10,12 +10,10 @@ import Contact from './pages/Contact';
 import './styles/global.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Ecommerce from './pages/Ecom';
-import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   return (
     <Router>
-      <ThemeToggle />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -14,17 +14,7 @@
   --section-spacing: 4rem;
 }
 
-/* Dark theme overrides */
-[data-theme="dark"] {
-  --primary-bg: #1a1a1a;
-  --secondary-bg: #2d2d2d;
-  --accent-blue: #4a90a4;
-  --accent-mint: #5a9b8a;
-  --accent-cream: #3a3a3a;
-  --text-color: #ffffff;
-  --heading-color: #b7e3ed;
-  --shadow-soft: rgba(0, 0, 0, 0.2);
-}
+
 
 /* Base styles */
 * {
