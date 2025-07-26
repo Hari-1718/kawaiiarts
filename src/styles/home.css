@@ -184,6 +184,35 @@
   transform: translateX(3px);
 }
 
+/* Remove default mobile button outlines and highlights */
+.btn:focus,
+.btn:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn {
+  -webkit-tap-highlight-color: transparent; /* For mobile tap highlight */
+}
+
+/* Remove default link outlines */
+a:focus,
+a:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus outlines for all interactive elements */
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent; /* For mobile tap highlight */
+}
+
 /* Hero Visual */
 .hero-visual {
   display: flex;
