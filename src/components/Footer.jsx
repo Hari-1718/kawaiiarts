@@ -1,20 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/footer.css';
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setIsSubscribed(true);
-      setEmail('');
-      // Reset subscription status after 3 seconds
-      setTimeout(() => setIsSubscribed(false), 3000);
-    }
-  };
-
   return (
     <footer className="footer">
       {/* Decorative wave at top */}
@@ -38,98 +25,6 @@ const Footer = () => {
                 <p className="footer-tagline">Spreading joy with cute, colorful string art! ✨</p>
               </div>
             </div>
-            <div className="footer-social">
-              <h4>Follow Our Journey</h4>
-              <div className="social-links">
-                <a 
-                  href="https://instagram.com/kawaiiarts_16" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="social-link instagram"
-                  aria-label="Follow us on Instagram"
-                >
-                  <span className="social-icon">📸</span>
-                  <span className="social-text">Instagram</span>
-                </a>
-                <a 
-                  href="https://wa.me/918019824995" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="social-link whatsapp"
-                  aria-label="Chat with us on WhatsApp"
-                >
-                  <span className="social-icon">💬</span>
-                  <span className="social-text">WhatsApp</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick links section */}
-          <div className="footer-section">
-            <h4 className="footer-section-title">Quick Links</h4>
-            <ul className="footer-links">
-              <li><a href="/" className="footer-link">🏠 Home</a></li>
-              <li><a href="/gallery" className="footer-link">🖼️ Gallery</a></li>
-              <li><a href="/shop" className="footer-link">🛍️ Shop</a></li>
-              <li><a href="/blog" className="footer-link">📝 Blog</a></li>
-              <li><a href="/contact" className="footer-link">📞 Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Contact section */}
-          <div className="footer-section">
-            <h4 className="footer-section-title">Get in Touch</h4>
-            <div className="contact-info">
-              <div className="contact-item">
-                <span className="contact-icon">📧</span>
-                <a href="mailto:Stringartksp16@gmail.com" className="contact-link">
-                  Stringartksp16@gmail.com
-                </a>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">📱</span>
-                <a href="tel:+918019824995" className="contact-link">
-                  +91 8019824995
-                </a>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">📍</span>
-                <span className="contact-text">India</span>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">⏰</span>
-                <span className="contact-text">24/7 Support</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter section */}
-          <div className="footer-section">
-            <h4 className="footer-section-title">Stay Updated</h4>
-            <p className="newsletter-text">Get the latest updates on new designs and special offers!</p>
-            <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
-              <div className="newsletter-input-group">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="newsletter-input"
-                  required
-                />
-                <button type="submit" className="newsletter-btn">
-                  <span className="btn-text">Subscribe</span>
-                  <span className="btn-icon">✨</span>
-                </button>
-              </div>
-              {isSubscribed && (
-                <div className="subscription-success">
-                  <span className="success-icon">🎉</span>
-                  <span>Thank you for subscribing!</span>
-                </div>
-              )}
-            </form>
           </div>
         </div>
 
