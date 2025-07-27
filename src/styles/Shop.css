@@ -38,7 +38,7 @@
 
 .shop-nav-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 1rem;
@@ -413,11 +413,36 @@
   line-height: 1.4;
 }
 
+.product-price-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  flex-wrap: wrap;
+}
+
 .product-price {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-color);
-  margin: 0.5rem 0;
+  margin: 0;
+}
+
+.original-price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-decoration: line-through;
+  margin: 0;
+}
+
+.discount-badge {
+  background: #ef4444;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .stock-status {

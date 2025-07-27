@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import shop1 from '../assets/gallery/shop1.jpg';
 import shop2 from '../assets/gallery/shop2.jpg';
+import shop3 from '../assets/gallery/shop3.jpg';
 import '../styles/Shop.css';
 
 const products = [
@@ -18,6 +19,16 @@ const products = [
     image: shop2,
     price: 1000,
     description: 'Adorable teddy bear design in vibrant colors',
+    inStock: true,
+  },
+  {
+    id: 3,
+    name: 'Premium String Art Design',
+    image: shop3,
+    price: 1999,
+    originalPrice: 2499,
+    discount: 20,
+    description: 'Exquisite handcrafted string art with premium materials',
     inStock: true,
   },
 ];
@@ -245,7 +256,17 @@ const Ecommerce = () => {
               <div className="product-info">
                 <h3>{product.name}</h3>
                 <p className="product-description">{product.description}</p>
-                <p className="product-price">₹{product.price}</p>
+                <div className="product-price-container">
+                  {product.discount ? (
+                    <>
+                      <p className="product-price">₹{product.price}</p>
+                      <p className="original-price">₹{product.originalPrice}</p>
+                      <span className="discount-badge">{product.discount}% OFF</span>
+                    </>
+                  ) : (
+                    <p className="product-price">₹{product.price}</p>
+                  )}
+                </div>
                 <p className="stock-status">
                   {product.inStock ? '✅ In Stock' : '❌ Out of Stock'}
                 </p>
