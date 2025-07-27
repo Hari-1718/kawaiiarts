@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import './styles/global.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './styles/global.css';
 
-// Lazy load pages for code splitting
+// Lazy load all components for better code splitting
+const Navbar = lazy(() => import('./components/Navbar'));
+const Footer = lazy(() => import('./components/Footer'));
 const Home = lazy(() => import('./pages/Home'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Shop = lazy(() => import('./pages/Shop'));
@@ -15,7 +15,6 @@ const Ecommerce = lazy(() => import('./pages/Ecom'));
 function App() {
   return (
     <Router>
-      <Navbar />
       <Suspense fallback={
         <div style={{ 
           display: 'flex', 
@@ -28,6 +27,7 @@ function App() {
           Loading...
         </div>
       }>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -36,8 +36,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/ecommerce" element={<Ecommerce/>} />
         </Routes>
+        <Footer />
       </Suspense>
-      <Footer />
     </Router>
   );
 }

@@ -7,19 +7,42 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom']
+        manualChunks: (id) => {
+          // More granular vendor chunking
+          if (id.includes('node_modules')) {
+            if (id.includes('react/') && !id.includes('react-router')) {
+              return 'react-core';
+            }
+            if (id.includes('react-dom')) {
+              return 'react-dom';
+            }
+            if (id.includes('react-router')) {
+              return 'router';
+            }
+            // Other node_modules
+            return 'vendor';
+          }
+          // Component chunks
+          if (id.includes('/components/')) {
+            return 'components';
+          }
+          // Page chunks
+          if (id.includes('/pages/')) {
+            return 'pages';
+          }
         }
       }
     },
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
     minify: 'esbuild',
     target: 'es2015',
-    assetsInlineLimit: 4096
+    assetsInlineLimit: 4096,
+    sourcemap: false,
+    cssCodeSplit: true
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
+    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: []
   },
   assetsInclude: ['**/*.jpg', '**/*.png', '**/*.svg', '**/*.gif']
 })
