@@ -10,6 +10,9 @@ import art8 from '../assets/gallery/art8.jpg';
 import art9 from '../assets/gallery/art9.jpg';
 import art10 from '../assets/gallery/art10.jpg';
 import art11 from '../assets/gallery/art11.jpg';
+import art12 from '../assets/gallery/art12.jpg';
+import art13 from '../assets/gallery/art13.jpg';
+import art14 from '../assets/gallery/art14.jpg';
 import '../styles/Gallery.css';
 
 const Gallery = () => {
@@ -53,6 +56,15 @@ const Gallery = () => {
         </div>
         <div className="gallery-item">
           <img src={art9} alt="Kawaii Art 9" />
+        </div>
+        <div className="gallery-item">
+          <img src={art12} alt="Kawaii Art 12" />
+        </div>
+        <div className="gallery-item">
+          <img src={art13} alt="Kawaii Art 13" />
+        </div>
+        <div className="gallery-item">
+          <img src={art14} alt="Kawaii Art 14" />
         </div>
       </div>
     </div>

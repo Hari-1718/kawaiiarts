@@ -26,7 +26,7 @@ const Navbar = () => {
       </button>
       <div className="navbar-logo">
         <img src="/kawaiiarts logo.jpg" alt="kawaiiarts Logo" height="40" style={{width : "40px" , height:"auto" , borderRadius:"60%"}}/>
-        <span className="brand">kawaiiarts</span>
+        <span className="brand">Kawaiiarts</span>
       </div>
       <ul
         id="navbar-links"
