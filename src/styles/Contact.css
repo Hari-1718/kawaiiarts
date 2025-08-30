@@ -21,9 +21,8 @@
 @media (max-width: 640px) {
   .kawaiiarts-bg-text {
     font-size: 20vw;
-    bottom: 2vw;
-    color: #bbbbbb;
-    text-shadow: 0 1px 8px #fff, 0 1px 12px #b7e3ed44;
+    bottom: -10vw; /* Move text lower so only half is visible */
+    /* color and text-shadow remain unchanged */
   }
 }
 :root {
