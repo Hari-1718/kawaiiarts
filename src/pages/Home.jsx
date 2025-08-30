@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import '../styles/home.css';
 
-const Home = () => (
-  <div className="home">
+const Home = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+  return (
+    <div className="home">
     {/* Animated Background */}
     <div className="animated-bg">
       <svg className="string-art-bg" width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
@@ -20,7 +30,8 @@ const Home = () => (
     {/* Hero Section */}
     <section className="hero">
       <div className="hero-content">
-        <div className="hero-text">
+        <div className="hero-text-with-image" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap' }}>
+          <div className="hero-text" style={{ flex: '1 1 320px', minWidth: '260px' }}>
           <h1 className="hero-title">
             <span className="title-line">Welcome to the</span>
             <span className="title-highlight">Kawaii Art World!</span>
@@ -49,13 +60,16 @@ const Home = () => (
               </svg>
             </a>
           </div>
+          </div>
+          {/* Removed small logo image beside hero text */}
         </div>
         <div className="hero-visual">
-          <div className="floating-elements">
-            <div className="floating-element element-1">🎨</div>
-            <div className="floating-element element-2">✨</div>
-            <div className="floating-element element-3">💖</div>
-            <div className="floating-element element-4">🌸</div>
+          <div className="floating-logo-container">
+            <img
+              src="/kawaiiarts logo.jpg"
+              alt="Kawaiiarts Logo Floating"
+              className="floating-logo-img"
+            />
           </div>
         </div>
       </div>
@@ -65,22 +79,22 @@ const Home = () => (
     <section className="features">
       <div className="features-grid">
         <div className="feature-card">
-          <div className="feature-icon">🎯</div>
+          <div className="feature-icon roll-on-hover">🎯</div>
           <h3>Handcrafted</h3>
           <p>Each piece is carefully crafted with love and attention to detail</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">🌈</div>
+          <div className="feature-icon roll-on-hover">🌈</div>
           <h3>Colorful</h3>
           <p>Vibrant colors that bring joy and positivity to your space</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">💝</div>
+          <div className="feature-icon roll-on-hover">💝</div>
           <h3>Unique</h3>
           <p>One-of-a-kind designs that reflect your personality</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">🚚</div>
+          <div className="feature-icon roll-on-hover">🚚</div>
           <h3>Free Shipping</h3>
           <p>Free shipping across India for all orders</p>
         </div>
@@ -122,7 +136,7 @@ const Home = () => (
 
     {/* Business Info Section */}
     <section className="business-info">
-      <div className="business-content">
+  <div className="business-content" data-aos="fade-up">
         <div className="business-header">
           <h2 className="business-name">Kawaiiarts_16</h2>
           <h3 className="business-type">String Art Studio</h3>
@@ -131,15 +145,15 @@ const Home = () => (
           <p className="tagline">We craft memories that last for a lifetime.</p>
           <div className="business-highlights">
             <div className="highlight">
-              <span className="highlight-icon">⏰</span>
+              <span className="highlight-icon roll-on-hover">⏰</span>
               <span className="highlight-text">DM us 10 days in advance for custom orders</span>
             </div>
             <div className="highlight">
-              <span className="highlight-icon">🚚</span>
+              <span className="highlight-icon roll-on-hover">🚚</span>
               <span className="highlight-text">Free shipping all over India 🍀</span>
             </div>
             <div className="highlight">
-              <span className="highlight-icon">💬</span>
+              <span className="highlight-icon roll-on-hover">💬</span>
               <span className="highlight-text">Personalized customer support</span>
             </div>
           </div>
@@ -149,7 +163,7 @@ const Home = () => (
 
     {/* Call to Action */}
     <section className="cta">
-      <div className="cta-content">
+  <div className="cta-content" data-aos="fade-up" data-aos-delay="150">
         <h2>Ready to Add Some Kawaii to Your Life?</h2>
         <p>Start your journey with our beautiful string art creations</p>
         <div className="cta-buttons">
@@ -158,7 +172,9 @@ const Home = () => (
         </div>
       </div>
     </section>
-  </div>
-);
+
+    </div>
+  );
+}
 
 export default Home;
