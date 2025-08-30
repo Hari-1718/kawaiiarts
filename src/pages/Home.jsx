@@ -75,6 +75,14 @@ const Home = () => {
       </div>
     </section>
 
+    {/* Large KawaiiArts background text styled like Contact page, always at the bottom */}
+    <h1
+      aria-hidden="true"
+      className="kawaiiarts-bg-text"
+    >
+      KawaiiArts
+    </h1>
+
     {/* Features Grid */}
     <section className="features">
       <div className="features-grid">

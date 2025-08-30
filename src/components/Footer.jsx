@@ -28,22 +28,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer bottom */}
-        <div className="footer-bottom">
-          <div className="footer-bottom-content">
-            <div className="footer-copyright">
-              <p>&copy; 2024 <span className="copyright-brand">Kawaiiarts</span>. All rights reserved.</p>
-              <p className="footer-heart">Made with 💖 in India</p>
-            </div>
-            <div className="footer-extra-links">
-              <a href="/privacy" className="footer-extra-link">Privacy Policy</a>
-              <span className="separator">•</span>
-              <a href="/terms" className="footer-extra-link">Terms of Service</a>
-              <span className="separator">•</span>
-              <a href="/shipping" className="footer-extra-link">Shipping Info</a>
-            </div>
-          </div>
-        </div>
+  {/* Footer bottom removed as requested */}
       </div>
 
       {/* Floating elements */}
