@@ -63,7 +63,6 @@ const Contact = () => (
     <h1
       aria-hidden="true"
       className="kawaiiarts-bg-text"
-      style={{ position: 'fixed', left: 0, right: 0, bottom: '-11vw', margin: '0 auto', textAlign: 'center', fontSize: '18vw', zIndex: 0, color: '#e5e5e5', fontWeight: 900, letterSpacing: '0.05em', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', textTransform: 'none', fontFamily: 'inherit' }}
     >
       KawaiiArts
     </h1>
