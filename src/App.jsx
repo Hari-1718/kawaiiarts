@@ -20,6 +20,11 @@ function AppContent() {
   const isAuthPage = location.pathname === '/auth';
   const isContactPage = location.pathname === '/contact';
 
+  // Always scroll to top on route change (mobile & desktop)
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
   return (
     <Suspense fallback={
       <div style={{ 

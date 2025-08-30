@@ -79,22 +79,22 @@ const Home = () => {
     <section className="features">
       <div className="features-grid">
         <div className="feature-card">
-          <div className="feature-icon roll-on-hover">🎯</div>
+          <div className="feature-icon">🎯</div>
           <h3>Handcrafted</h3>
           <p>Each piece is carefully crafted with love and attention to detail</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon roll-on-hover">🌈</div>
+          <div className="feature-icon">🌈</div>
           <h3>Colorful</h3>
           <p>Vibrant colors that bring joy and positivity to your space</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon roll-on-hover">💝</div>
+          <div className="feature-icon">💝</div>
           <h3>Unique</h3>
           <p>One-of-a-kind designs that reflect your personality</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon roll-on-hover">🚚</div>
+          <div className="feature-icon">🚚</div>
           <h3>Free Shipping</h3>
           <p>Free shipping across India for all orders</p>
         </div>

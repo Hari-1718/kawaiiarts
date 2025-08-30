@@ -290,7 +290,7 @@ button {
 }
 
 .feature-card {
-  background: var(--accent-cream);
+  /* Removed shared transition */
   padding: 2rem;
   border-radius: var(--rounded);
   text-align: center;
@@ -299,7 +299,7 @@ button {
   position: relative;
   /* overflow: hidden; */
 }
-
+  transition: transform 0.3s, box-shadow 0.3s; /* Only transition for hover effects */
 .feature-card::before {
   content: '';
   position: absolute;
