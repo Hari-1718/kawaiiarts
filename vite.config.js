@@ -40,6 +40,10 @@ export default defineConfig({
     sourcemap: false,
     cssCodeSplit: true
   },
+  server:{
+    port:1797,
+    host:true
+  },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
     exclude: []

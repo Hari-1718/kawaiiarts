@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import './styles/global.css';
 
 // Lazy load all components for better code splitting
@@ -11,34 +12,48 @@ const Shop = lazy(() => import('./pages/Shop'));
 const Blog = lazy(() => import('./pages/Blog'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Ecommerce = lazy(() => import('./pages/Ecom'));
+const Auth = lazy(() => import('./pages/Auth'));
+
+function AppContent() {
+  const location = useLocation();
+  const isEcommercePage = location.pathname === '/ecommerce';
+  const isAuthPage = location.pathname === '/auth';
+
+  return (
+    <Suspense fallback={
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '1.2rem',
+        color: '#666'
+      }}>
+        Loading...
+      </div>
+    }>
+      {!isEcommercePage && !isAuthPage && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/ecommerce" element={<Ecommerce/>} />
+        <Route path="/auth" element={<Auth />} />
+      </Routes>
+      {!isEcommercePage && !isAuthPage && <Footer />}
+    </Suspense>
+  );
+}
 
 function App() {
   return (
-    <Router>
-      <Suspense fallback={
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          height: '100vh',
-          fontSize: '1.2rem',
-          color: '#666'
-        }}>
-          Loading...
-        </div>
-      }>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/ecommerce" element={<Ecommerce/>} />
-        </Routes>
-        <Footer />
-      </Suspense>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
   );
 }
 
