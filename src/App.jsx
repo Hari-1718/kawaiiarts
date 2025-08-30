@@ -18,6 +18,7 @@ function AppContent() {
   const location = useLocation();
   const isEcommercePage = location.pathname === '/ecommerce';
   const isAuthPage = location.pathname === '/auth';
+  const isContactPage = location.pathname === '/contact';
 
   return (
     <Suspense fallback={
@@ -42,7 +43,7 @@ function AppContent() {
         <Route path="/ecommerce" element={<Ecommerce/>} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
-      {!isEcommercePage && !isAuthPage && <Footer />}
+  {!isEcommercePage && !isAuthPage && !isContactPage && <Footer />}
     </Suspense>
   );
 }

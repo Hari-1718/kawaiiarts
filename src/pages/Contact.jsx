@@ -2,13 +2,15 @@ import React from 'react';
 import '../styles/Contact.css';
 
 const Contact = () => (
-  <div className="contact-container">
-    <div className="contact-card">
-      <h1>Contact Us <span className="contact-mail-icon" style={{verticalAlign: 'middle', marginLeft: '6px', display: 'inline-block'}}><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mailRadial" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="#fffbe6"/><stop offset="60%" stop-color="#ffb6ec"/><stop offset="100%" stop-color="#b7e3ed"/></radialGradient></defs><rect width="36" height="36" rx="10" fill="url(#mailRadial)"/><g filter="url(#mailShadow)"><path d="M10 14l8 6 8-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><rect x="10" y="12" width="16" height="12" rx="3" stroke="#fff" strokeWidth="2.5" fill="none"/></g><defs><filter id="mailShadow" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#b7e3ed"/></filter></defs></svg></span></h1>
+  <div className="contact-container" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', display: 'block' }}>
+    <div className="contact-card" style={{ position: 'relative', zIndex: 1, margin: '0 auto' }}>
+      {/* ...existing contact card content... */}
+      <h1>Contact Us <span className="contact-mail-icon" style={{verticalAlign: 'middle', marginLeft: '6px', display: 'inline-block'}}><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mailRadial" cx="50%" cy="50%" r="80%"><stop offset="0%" stopColor="#fffbe6"/><stop offset="60%" stopColor="#ffb6ec"/><stop offset="100%" stopColor="#b7e3ed"/></radialGradient></defs><rect width="36" height="36" rx="10" fill="url(#mailRadial)"/><g filter="url(#mailShadow)"><path d="M10 14l8 6 8-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><rect x="10" y="12" width="16" height="12" rx="3" stroke="#fff" strokeWidth="2.5" fill="none"/></g><defs><filter id="mailShadow" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#b7e3ed"/></filter></defs></svg></span></h1>
       <p>Got a question or want to place a custom order?</p>
       <p>We’d love to hear from you!</p>
 
       <div className="contact-details">
+        {/* ...existing contact details... */}
         <p>
           <span style={{ verticalAlign: 'middle', marginRight: '8px' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +27,7 @@ const Contact = () => (
           <span style={{ verticalAlign: 'middle', marginRight: '8px' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="24" height="24" rx="6" fill="#e0ffe6"/>
-              <path d="M6.5 7.5C7.5 10.5 10.5 13.5 13.5 14.5L16 12C16.5 11.5 17.5 11.5 18 12.5C18.5 13.5 19.5 15.5 19.5 16C19.5 16.5 18.5 18 16 18C10.5 18 6 13.5 6 8C6 5.5 7.5 4.5 8 4.5C8.5 4.5 10.5 5.5 11.5 6C12.5 6.5 12.5 7.5 12 8L9.5 10.5C8.5 11.5 8.5 12.5 9.5 13.5C10.5 14.5 11.5 14.5 12.5 13.5L15 11C15.5 10.5 16.5 10.5 17 11.5C17.5 12.5 18.5 14.5 18.5 15C18.5 15.5 17.5 17 15 17C9.5 17 5 12.5 5 7C5 4.5 6.5 3.5 7 3.5C7.5 3.5 9.5 4.5 10.5 5C11.5 5.5 11.5 6.5 11 7L8.5 9.5C7.5 10.5 7.5 11.5 8.5 12.5C9.5 13.5 10.5 13.5 11.5 12.5L14 10C14.5 9.5 15.5 9.5 16 10.5C16.5 11.5 17.5 13.5 17.5 14C17.5 14.5 16.5 16 14 16C8.5 16 4 11.5 4 6C4 3.5 5.5 2.5 6 2.5C6.5 2.5 8.5 3.5 9.5 4C10.5 4.5 10.5 5.5 10 6L7.5 8.5C6.5 9.5 6.5 10.5 7.5 11.5C8.5 12.5 9.5 12.5 10.5 11.5L13 9C13.5 8.5 14.5 8.5 15 9.5C15.5 10.5 16.5 12.5 16.5 13C16.5 13.5 15.5 15 13 15C7.5 15 3 10.5 3 5C3 2.5 4.5 1.5 5 1.5C5.5 1.5 7.5 2.5 8.5 3C9.5 3.5 9.5 4.5 9 5L6.5 7.5Z" fill="#34c759"/>
+              <path d="M6.5 7.5C7.5 10.5 10.5 13.5 13.5 14.5L16 12C16.5 11.5 17.5 11.5 18 12.5C18.5 13.5 19.5 15.5 19.5 16C19.5 16.5 18.5 18 16 18C10.5 18 6 13.5 6 8C6 5.5 7.5 4.5 8 4.5C8.5 4.5 10.5 5.5 11.5 6C12.5 6.5 12.5 7.5 12 8L9.5 10.5C8.5 11.5 8.5 12.5 9.5 13.5C10.5 14.5 11.5 14.5 12.5 13.5L15 11C15.5 10.5 16.5 10.5 17 11.5C17.5 12.5 18.5 14.5 18.5 15C18.5 15.5 17.5 17 15 17C9.5 17 5 12.5 5 7C5 4.5 6.5 3.5 7 3.5C7.5 3.5 9.5 4.5 10.5 5C11.5 5.5 11.5 6.5 11 7L8.5 9.5C6.5 9.5 6.5 10.5 7.5 11.5C8.5 12.5 9.5 12.5 10.5 11.5L13 9C13.5 8.5 14.5 8.5 15 9.5C15.5 10.5 16.5 12.5 16.5 13C16.5 13.5 15.5 15 13 15C7.5 15 3 10.5 3 5C3 2.5 4.5 1.5 5 1.5C5.5 1.5 7.5 2.5 8.5 3C9.5 3.5 9.5 4.5 9 5L6.5 7.5Z" fill="#34c759"/>
             </svg>
           </span>
           Call or WhatsApp:
@@ -57,6 +59,14 @@ const Contact = () => (
         </a>
       </div>
     </div>
+    {/* Large KawaiiArts background text styled like Cygnuxxs example, always at the bottom */}
+    <h1
+      aria-hidden="true"
+      className="kawaiiarts-bg-text"
+      style={{ position: 'fixed', left: 0, right: 0, bottom: '-11vw', margin: '0 auto', textAlign: 'center', fontSize: '18vw', zIndex: 0, color: '#e5e5e5', fontWeight: 900, letterSpacing: '0.05em', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', textTransform: 'none', fontFamily: 'inherit' }}
+    >
+      KawaiiArts
+    </h1>
   </div>
 );
 

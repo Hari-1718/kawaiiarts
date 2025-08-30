@@ -1,3 +1,28 @@
+/* Large KawaiiArts background text for Contact page */
+.kawaiiarts-bg-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -11vw;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18vw;
+  z-index: -10;
+  color: #e5e5e5;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-transform: none;
+  font-family: inherit;
+}
+@media (max-width: 640px) {
+  .kawaiiarts-bg-text {
+    font-size: 24vw;
+    bottom: -1rem;
+  }
+}
 :root {
   --contact-bg: #f6fbfc;
   --card-bg: #ffffffee;
@@ -19,6 +44,7 @@
   align-items: center;
   min-height: 80vh;
   font-family: 'Open Sans', sans-serif;
+  margin-top: 64px; /* Add space below navbar */
 }
 
 /* CONTACT CARD */
