@@ -172,7 +172,7 @@ const Home = () => {
       {/* Call to Action */}
       <section className="cta">
         <div className="cta-content" data-aos="fade-up" data-aos-delay="150">
-          <h2>Ready to Add Some Kawaii to Your Life?</h2>
+          <h2>Ready to add some Kawaii Art to your life?</h2>
           <p>Start your journey with our beautiful string art creations</p>
           <div className="cta-buttons">
             <a href="/gallery" className="btn btn-primary">Explore Gallery</a>

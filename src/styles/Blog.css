@@ -34,6 +34,18 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.blog-welcome-text {
+  font-weight: bold;
+  color: #b07bac;
+  /* Default light mode color */
+  margin-bottom: 10px;
+}
+
+[data-theme='dark'] .blog-welcome-text {
+  color: var(--accent-blue);
+  /* Visible color for dark mode */
+}
+
 @keyframes fadeInBlog {
   0% {
     opacity: 0;

@@ -85,6 +85,7 @@
 
     /* Cards */
     --card-bg: #1e293b;
+    --blog-card-bg: var(--card-bg);
 
     /* Shop Specific */
     --highlight: #334155;
