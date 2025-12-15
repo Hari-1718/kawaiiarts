@@ -1,0 +1,238 @@
+/* navbar.css */
+/* Variables removed - see index.css */
+
+.navbar {
+  background: var(--bg-navbar);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px var(--shadow-soft);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-radius: 0 0 var(--rounded) var(--rounded);
+  transition: all 0.3s ease;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  font-size: 1.5rem;
+  color: var(--brand-color);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  font-family: 'Quicksand', sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  padding: 12px 20px;
+  border-radius: 12px;
+  position: relative;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px transparent;
+  font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a:focus {
+  background: linear-gradient(135deg, var(--accent-mint), var(--hover-blue));
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px var(--shadow-hover);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links li a.active {
+  background: linear-gradient(135deg, var(--accent-blue), var(--hover-blue));
+  color: white;
+  box-shadow: 0 4px 12px var(--shadow-soft);
+  transform: translateY(-1px);
+}
+
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-soft);
+  cursor: pointer;
+  z-index: 1100;
+  transition: all 0.3s ease;
+}
+
+.navbar-hamburger:hover {
+  background: var(--accent-mint);
+  box-shadow: 0 6px 20px var(--shadow-hover);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.bar {
+  width: 28px;
+  height: 3px;
+  background: var(--brand-color);
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.navbar-hamburger.open .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.navbar-hamburger.open .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .navbar-logo {
+    order: 1;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  /* Make sure Theme Toggle is next to hamburger */
+  .theme-toggle-btn {
+    order: 2;
+    margin-right: 0.5rem;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    order: 3;
+  }
+
+  .navbar-links {
+    position: fixed;
+    /* robust positioning: pushed completely off screen by default using viewport units */
+    top: 100vh;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    /* Fixed 60% height as requested */
+    height: 60vh;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Soft top corners */
+    border-radius: 24px 24px 0 0;
+
+    /* Default shadow */
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+
+    padding: 3.5rem 1rem 2rem 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+
+    /* Initially hidden (below viewport) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0);
+
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    z-index: 1050;
+  }
+
+  /* Handle bar */
+  .navbar-links::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background-color: var(--text-color);
+    opacity: 0.2;
+    border-radius: 10px;
+    z-index: 1051;
+  }
+
+  /* Open State */
+  .navbar-links.open {
+    opacity: 1;
+    visibility: visible;
+    /* Slide UP into view by exactly 100% of its own height */
+    transform: translateY(-100%);
+
+    /* Dark Backdrop Overlay */
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1), 0 0 0 100vh rgba(0, 0, 0, 0.6);
+  }
+
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links li a {
+    display: block;
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto 8px auto;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .navbar-links li a:hover,
+  .navbar-links li a:active {
+    background: var(--accent-mint);
+    color: var(--brand-color);
+    transform: scale(0.98);
+    box-shadow: none;
+  }
+
+  .navbar-links li a.active {
+    background: var(--accent-blue);
+    color: var(--heading-color);
+    box-shadow: 0 4px 12px var(--shadow-soft);
+  }
+}
+
+@media (max-width: 480px) {
+  /* No additional overrides needed with the vh strategy */
+}

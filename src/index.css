@@ -1,0 +1,139 @@
+:root {
+    /* Light Mode (Default) */
+    --primary-bg: #f6fbfc;
+    --secondary-bg: #ecf7f9;
+    --accent-blue: #b7e3ed;
+    --accent-mint: #d8f6f0;
+    --accent-cream: #faf8f1;
+    --text-color: #2f2f2f;
+    --heading-color: #244d5f;
+    --shadow-soft: rgba(0, 0, 0, 0.05);
+    --shadow-hover: rgba(0, 0, 0, 0.12);
+    --hover-glow: rgba(183, 227, 237, 0.5);
+
+    /* Navbar specific (from navbar.css) */
+    --bg-navbar: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+    --navbar-text: #1f2937;
+    --navbar-brand: #581c87;
+    --brand-color: var(--navbar-brand);
+    --navbar-hamburger-bg: rgba(255, 255, 255, 0.9);
+
+    /* Common */
+    --rounded: 18px;
+    --container-max-width: 1200px;
+    --section-spacing: 4rem;
+
+    /* Component Mappings (Light Mode) */
+    --contact-bg: var(--primary-bg);
+    --gallery-bg: var(--primary-bg);
+    --shop-bg: var(--primary-bg);
+    --blog-bg: var(--primary-bg);
+
+    --card-bg: #fffffffa;
+    --blog-card-bg: #ffffffdd;
+
+    /* Shop Specific */
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --highlight: #d8f3f9;
+    --hover-shadow: rgba(176, 226, 245, 0.4);
+    --accent-hover: #7dc5d4;
+    /* Default accent hover */
+
+    /* Footer Specific (Light Mode) */
+    --footer-primary: #581c87;
+    --footer-secondary: #7c3aed;
+    --footer-accent: #a855f7;
+    --footer-light: #f3e8ff;
+    --footer-text: #1f2937;
+    --footer-text-light: #6b7280;
+    --footer-white: #ffffff;
+    --footer-border: #e5e7eb;
+    --footer-shadow: rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #581c87, #7c3aed);
+    --gradient-secondary: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+}
+
+[data-theme='dark'] {
+    /* Dark Mode Overrides */
+    --primary-bg: #0f172a;
+    --secondary-bg: #111827;
+    --accent-blue: #38bdf8;
+    /* Brighter blue for dark mode */
+    --accent-mint: #1e293b;
+    /* Dark card bg */
+    --accent-cream: #1f2937;
+    /* Darker card bg */
+    --text-color: #cbd5e1;
+    --heading-color: #f1f5f9;
+    --shadow-soft: rgba(0, 0, 0, 0.4);
+    --shadow-hover: rgba(0, 0, 0, 0.6);
+    --hover-glow: rgba(56, 189, 248, 0.2);
+
+    /* Navbar specific overrides */
+    --bg-navbar: linear-gradient(135deg, #1e1b4b, #312e81);
+    --navbar-text: #e2e8f0;
+    --navbar-brand: #ffffff;
+    --brand-color: var(--navbar-brand);
+    --navbar-hamburger-bg: rgba(30, 41, 59, 0.9);
+
+    /* Contact, Gallery, Shop, Blog Mappings */
+    --contact-bg: var(--primary-bg);
+    --gallery-bg: var(--primary-bg);
+    --shop-bg: var(--primary-bg);
+    --blog-bg: var(--primary-bg);
+
+    /* Cards */
+    --card-bg: #1e293b;
+
+    /* Shop Specific */
+    --highlight: #334155;
+    --hover-shadow: rgba(56, 189, 248, 0.2);
+
+    /* Footer Dark Mode */
+    --footer-primary: #1e1b4b;
+    --footer-secondary: #312e81;
+    --footer-light: #94a3b8;
+    --footer-white: #e2e8f0;
+    --gradient-primary: linear-gradient(135deg, #0f172a, #1e1b4b);
+    --gradient-secondary: linear-gradient(135deg, #1e293b, #334155);
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    font-family: 'Open Sans', 'Segoe UI', sans-serif;
+}
+
+
+.kawaiiarts-bg-text {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -7vw;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16vw;
+    z-index: 0;
+    color: #cccccc;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    text-transform: none;
+    font-family: inherit;
+    text-shadow: 0 2px 8px #fff, 0 1px 24px #b7e3ed44;
+    transform: translateX(-2vw);
+}
+
+@media (max-width: 640px) {
+    .kawaiiarts-bg-text {
+        font-size: 20vw;
+        bottom: -10vw;
+        /* Move text lower so only half is visible */
+        /* color and text-shadow remain unchanged */
+    }
+}

@@ -1,0 +1,72 @@
+/* CSS Variables for theming */
+/* Variables removed - see index.css */
+
+
+
+/* Global styles */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure smooth transitions for all elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Global removal of default browser outlines and highlights */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+textarea,
+[role="button"],
+[tabindex] {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Remove focus and active states globally */
+button:focus,
+button:active,
+a:focus,
+a:active,
+input[type="button"]:focus,
+input[type="button"]:active,
+input[type="submit"]:focus,
+input[type="submit"]:active,
+input[type="reset"]:focus,
+input[type="reset"]:active,
+select:focus,
+select:active,
+textarea:focus,
+textarea:active,
+[role="button"]:focus,
+[role="button"]:active,
+[tabindex]:focus,
+[tabindex]:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove mobile tap highlights */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}

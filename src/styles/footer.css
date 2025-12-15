@@ -1,0 +1,265 @@
+/* Enhanced Footer CSS with modern design and animations */
+/* Variables removed - see index.css */
+
+.footer {
+  position: relative;
+  background: var(--gradient-primary);
+  color: var(--footer-white);
+  margin-top: 4rem;
+  overflow: hidden;
+}
+
+/* Decorative wave at top */
+.footer-wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  color: var(--footer-white);
+  z-index: 1;
+}
+
+.footer-wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Main footer container */
+.footer-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Main footer content */
+.footer-main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0 2rem;
+}
+
+/* Brand section */
+.footer-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px var(--footer-shadow);
+  transition: var(--transition);
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.footer-brand-text {
+  flex: 1;
+}
+
+.footer-brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ffffff, #e9d5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-tagline {
+  font-size: 1.4rem;
+  color: var(--footer-light);
+  line-height: 1.5;
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem 0 1rem;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-copyright p {
+  margin: 0;
+  color: var(--footer-light);
+  font-size: 0.9rem;
+}
+
+.copyright-brand {
+  font-weight: 600;
+  color: var(--footer-white);
+}
+
+.footer-heart {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.footer-extra-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-extra-link {
+  color: var(--footer-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.footer-extra-link:hover {
+  color: var(--footer-white);
+}
+
+.separator {
+  color: var(--footer-light);
+  opacity: 0.5;
+}
+
+/* Floating elements */
+.footer-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.floating-element:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 3s;
+}
+
+.floating-element:nth-child(4) {
+  top: 40%;
+  right: 5%;
+  animation-delay: 4.5s;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-extra-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-main {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .footer-logo {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+.footer a:focus,
+.footer button:focus {
+  outline: 2px solid var(--footer-accent);
+  outline-offset: 2px;
+}
+
+/* Remove default button outlines */
+.footer button:focus,
+.footer button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.footer button {
+  -webkit-tap-highlight-color: transparent;
+}
