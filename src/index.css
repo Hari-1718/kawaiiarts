@@ -2,6 +2,9 @@
     /* Light Mode (Default) */
     --primary-bg: #f6fbfc;
     --secondary-bg: #ecf7f9;
+    /* Global Accent (overridable) */
+    --accent-color: #a855f7;
+    --hover-blue: #c084fc;
     --accent-blue: #b7e3ed;
     --accent-mint: #d8f6f0;
     --accent-cream: #faf8f1;
@@ -58,6 +61,9 @@
     /* Dark Mode Overrides */
     --primary-bg: #0f172a;
     --secondary-bg: #111827;
+    /* Global Accent (overridable) */
+    --accent-color: #a855f7;
+    --hover-blue: #7dd3fc;
     --accent-blue: #38bdf8;
     /* Brighter blue for dark mode */
     --accent-mint: #1e293b;

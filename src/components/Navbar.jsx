@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import '../styles/navbar.css';
 
 import ThemeToggle from './ThemeToggle';
+import ThemeColorPicker from './ThemeColorPicker';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +48,10 @@ const Navbar = () => {
         <li><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''} onClick={closeMenu}>Blog</Link></li>
         <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={closeMenu}>Contact</Link></li>
       </ul>
-      <ThemeToggle />
+      <div className="navbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <ThemeColorPicker />
+        <ThemeToggle />
+      </div>
     </nav>
   );
 };

@@ -34,6 +34,16 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Ensure brand text is white in dark theme for clarity */
+[data-theme='dark'] .brand {
+  color: #ffffff;
+}
+
+/* Ensure brand text is black in light theme as requested */
+[data-theme='light'] .brand {
+  color: #000000;
+}
+
 .navbar-links {
   list-style: none;
   display: flex;
@@ -135,10 +145,7 @@
   }
 
   /* Make sure Theme Toggle is next to hamburger */
-  .theme-toggle-btn {
-    order: 2;
-    margin-right: 0.5rem;
-  }
+  .navbar-actions { order: 2; margin-right: 0.5rem; }
 
   .navbar-hamburger {
     display: flex;
