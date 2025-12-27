@@ -1,65 +1,56 @@
-
 const express = require('express');
-const Order = require('../models/Order.js');
-const { protect } = require('../middleware/auth.js');
-
 const router = express.Router();
+const Order = require('../models/Order');
+const { protect } = require('../middleware/auth');
 
 // @desc    Create new order
 // @route   POST /api/orders
 // @access  Private
 router.post('/', protect, async (req, res) => {
-  try {
-    const { items, totalAmount, shippingAddress, paymentMethod } = req.body;
+  const {
+    items,
+    shippingAddress,
+    paymentMethod,
+    totalAmount
+  } = req.body;
 
-    const order = await Order.create({
-      user: req.user.id,
+  if (items && items.length === 0) {
+    return res.status(400).json({ message: 'No order items' });
+  } else {
+    const order = new Order({
+      user: req.user._id,
       items,
-      totalAmount,
       shippingAddress,
-      paymentMethod
+      paymentMethod,
+      totalAmount
     });
 
-    res.status(201).json(order);
-  } catch (error) {
-    console.error('Create order error:', error);
-    res.status(500).json({ message: 'Server error' });
+    const createdOrder = await order.save();
+    res.status(201).json(createdOrder);
   }
 });
 
-// @desc    Get user orders
+// @desc    Get logged in user orders
 // @route   GET /api/orders
 // @access  Private
 router.get('/', protect, async (req, res) => {
-  try {
-    const orders = await Order.find({ user: req.user.id }).sort({ createdAt: -1 });
-    res.json(orders);
-  } catch (error) {
-    console.error('Get orders error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
+  const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1 });
+  res.json(orders);
 });
 
 // @desc    Get order by ID
 // @route   GET /api/orders/:id
 // @access  Private
 router.get('/:id', protect, async (req, res) => {
-  try {
-    const order = await Order.findById(req.params.id).populate('user', 'name email');
+  const order = await Order.findById(req.params.id).populate('user', 'name email');
 
-    if (!order) {
-      return res.status(404).json({ message: 'Order not found' });
-    }
-
-    // Make sure user owns order
-    if (order.user._id.toString() !== req.user.id && req.user.role !== 'admin') {
+  if (order) {
+    if (order.user._id.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
       return res.status(401).json({ message: 'Not authorized' });
     }
-
     res.json(order);
-  } catch (error) {
-    console.error('Get order error:', error);
-    res.status(500).json({ message: 'Server error' });
+  } else {
+    res.status(404).json({ message: 'Order not found' });
   }
 });
 

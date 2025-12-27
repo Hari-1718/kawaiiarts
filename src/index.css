@@ -1,61 +1,61 @@
-:root {
-    /* Light Mode (Default) */
-    --primary-bg: #f6fbfc;
-    --secondary-bg: #ecf7f9;
-    /* Global Accent (overridable) */
-    --accent-color: #a855f7;
-    --hover-blue: #c084fc;
-    --accent-blue: #b7e3ed;
-    --accent-mint: #d8f6f0;
-    --accent-cream: #faf8f1;
-    --text-color: #2f2f2f;
-    --heading-color: #244d5f;
-    --shadow-soft: rgba(0, 0, 0, 0.05);
-    --shadow-hover: rgba(0, 0, 0, 0.12);
-    --hover-glow: rgba(183, 227, 237, 0.5);
+@import "tailwindcss";
 
-    /* Navbar specific (from navbar.css) */
-    --bg-navbar: linear-gradient(135deg, #f3e8ff, #e9d5ff);
-    --navbar-text: #1f2937;
-    --navbar-brand: #581c87;
-    --brand-color: var(--navbar-brand);
-    --navbar-hamburger-bg: rgba(255, 255, 255, 0.9);
+/* Light Mode (Default) */
+--primary-bg: #f6fbfc;
+--secondary-bg: #ecf7f9;
+/* Global Accent (overridable) */
+--accent-color: #a855f7;
+--hover-blue: #c084fc;
+--accent-blue: #b7e3ed;
+--accent-mint: #d8f6f0;
+--accent-cream: #faf8f1;
+--text-color: #2f2f2f;
+--heading-color: #244d5f;
+--shadow-soft: rgba(0, 0, 0, 0.05);
+--shadow-hover: rgba(0, 0, 0, 0.12);
+--hover-glow: rgba(183, 227, 237, 0.5);
 
-    /* Common */
-    --rounded: 18px;
-    --container-max-width: 1200px;
-    --section-spacing: 4rem;
+/* Navbar specific (from navbar.css) */
+--bg-navbar: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+--navbar-text: #1f2937;
+--navbar-brand: #581c87;
+--brand-color: var(--navbar-brand);
+--navbar-hamburger-bg: rgba(255, 255, 255, 0.9);
 
-    /* Component Mappings (Light Mode) */
-    --contact-bg: var(--primary-bg);
-    --gallery-bg: var(--primary-bg);
-    --shop-bg: var(--primary-bg);
-    --blog-bg: var(--primary-bg);
+/* Common */
+--rounded: 18px;
+--container-max-width: 1200px;
+--section-spacing: 4rem;
 
-    --card-bg: #fffffffa;
-    --blog-card-bg: #ffffffdd;
+/* Component Mappings (Light Mode) */
+--contact-bg: var(--primary-bg);
+--gallery-bg: var(--primary-bg);
+--shop-bg: var(--primary-bg);
+--blog-bg: var(--primary-bg);
 
-    /* Shop Specific */
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --highlight: #d8f3f9;
-    --hover-shadow: rgba(176, 226, 245, 0.4);
-    --accent-hover: #7dc5d4;
-    /* Default accent hover */
+--card-bg: #fffffffa;
+--blog-card-bg: #ffffffdd;
 
-    /* Footer Specific (Light Mode) */
-    --footer-primary: #581c87;
-    --footer-secondary: #7c3aed;
-    --footer-accent: #a855f7;
-    --footer-light: #f3e8ff;
-    --footer-text: #1f2937;
-    --footer-text-light: #6b7280;
-    --footer-white: #ffffff;
-    --footer-border: #e5e7eb;
-    --footer-shadow: rgba(0, 0, 0, 0.1);
-    --gradient-primary: linear-gradient(135deg, #581c87, #7c3aed);
-    --gradient-secondary: linear-gradient(135deg, #f3e8ff, #e9d5ff);
-}
+/* Shop Specific */
+--success-color: #10b981;
+--warning-color: #f59e0b;
+--highlight: #d8f3f9;
+--hover-shadow: rgba(176, 226, 245, 0.4);
+--accent-hover: #7dc5d4;
+/* Default accent hover */
+
+/* Footer Specific (Light Mode) */
+--footer-primary: #581c87;
+--footer-secondary: #7c3aed;
+--footer-accent: #a855f7;
+--footer-light: #f3e8ff;
+--footer-text: #1f2937;
+--footer-text-light: #6b7280;
+--footer-white: #ffffff;
+--footer-border: #e5e7eb;
+--footer-shadow: rgba(0, 0, 0, 0.1);
+--gradient-primary: linear-gradient(135deg, #581c87, #7c3aed);
+--gradient-secondary: linear-gradient(135deg, #f3e8ff, #e9d5ff);
 
 [data-theme='dark'] {
     /* Dark Mode Overrides */

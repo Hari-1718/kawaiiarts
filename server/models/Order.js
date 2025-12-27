@@ -1,64 +1,45 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  items: [{
-    productId: {
-      type: Number,
-      required: true
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
-    name: {
-      type: String,
-      required: true
+    items: [
+        {
+            productId: Number,
+            name: String,
+            price: Number,
+            quantity: Number,
+            image: String
+        }
+    ],
+    totalAmount: {
+        type: Number,
+        required: true
     },
-    price: {
-      type: Number,
-      required: true
+    shippingAddress: {
+        street: String,
+        city: String,
+        state: String,
+        zipCode: String,
+        country: String,
+        phone: String
     },
-    quantity: {
-      type: Number,
-      required: true,
-      default: 1
+    paymentMethod: {
+        type: String,
+        default: 'WhatsApp'
     },
-    image: String
-  }],
-  totalAmount: {
-    type: Number,
-    required: true
-  },
-  shippingAddress: {
-    street: String,
-    city: String,
-    state: String,
-    zipCode: String,
-    country: {
-      type: String,
-      default: 'India'
+    orderStatus: {
+        type: String,
+        enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'],
+        default: 'Pending'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
-  },
-  paymentMethod: {
-    type: String,
-    enum: ['COD', 'Online', 'WhatsApp'],
-    default: 'WhatsApp'
-  },
-  paymentStatus: {
-    type: String,
-    enum: ['Pending', 'Paid', 'Failed'],
-    default: 'Pending'
-  },
-  orderStatus: {
-    type: String,
-    enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'],
-    default: 'Pending'
-  },
-  trackingNumber: String,
-  notes: String
-}, {
-  timestamps: true
 });
 
-export default mongoose.model('Order', orderSchema); 
+module.exports = mongoose.model('Order', orderSchema);

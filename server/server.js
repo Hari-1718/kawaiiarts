@@ -1,6 +1,15 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://hariprasadchinimilli:Hard%402003@kawaiiartscluster.tqymdsc.mongodb.net/?appName=KawaiiartsCluster')
+  .then(() => {
+    console.log('Connected to MongoDB successfully');
+  })
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+  });
 const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth.js');
@@ -22,13 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log('Connected to MongoDB successfully');
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
+// Connection code removed
 
 // Routes
 app.use('/api/auth', authRoutes);

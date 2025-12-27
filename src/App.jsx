@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/global.css';
 
 // Lazy load all components for better code splitting
@@ -17,8 +17,8 @@ const Auth = lazy(() => import('./pages/Auth'));
 function AppContent() {
   const location = useLocation();
   const isEcommercePage = location.pathname === '/ecommerce';
-  const isAuthPage = location.pathname === '/auth';
   const isContactPage = location.pathname === '/contact';
+  const isAuthPage = location.pathname === '/auth';
 
   // Always scroll to top on route change (mobile & desktop)
   React.useEffect(() => {
@@ -27,10 +27,10 @@ function AppContent() {
 
   return (
     <Suspense fallback={
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         height: '100vh',
         fontSize: '1.2rem',
         color: '#666'
@@ -45,10 +45,10 @@ function AppContent() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/ecommerce" element={<Ecommerce/>} />
+        <Route path="/ecommerce" element={<Ecommerce />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
-  {!isEcommercePage && !isAuthPage && !isContactPage && <Footer />}
+      {!isEcommercePage && !isContactPage && !isAuthPage && <Footer />}
     </Suspense>
   );
 }

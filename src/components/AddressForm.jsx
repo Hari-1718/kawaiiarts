@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
-import { useAuth } from '../context/AuthContext';
-import '../styles/Auth.css';
+import PropTypes from 'prop-types';
+import '../styles/AddressForm.css';
 
 const AddressForm = ({ onAddressSubmit, onCancel }) => {
-  const { updateUser } = useAuth();
+  // const { updateUser } = useAuth(); // Removed
   const [formData, setFormData] = useState({
     street: '',
     city: '',
@@ -18,7 +17,7 @@ const AddressForm = ({ onAddressSubmit, onCancel }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -69,27 +68,20 @@ const AddressForm = ({ onAddressSubmit, onCancel }) => {
     setLoading(true);
 
     try {
-      // Update user profile with address information
+      // Save address to user profile
       await axios.put('http://localhost:5000/api/user/profile', {
         address: formData
       });
 
-      // Update the user context with the new address
-      updateUser({ address: formData });
-
       setMessage('Address saved successfully!');
-      
+
       // Call the success callback with the address data
       if (onAddressSubmit) {
         onAddressSubmit(formData);
       }
     } catch (error) {
       console.error('Address save error:', error);
-      if (error.response?.data?.message) {
-        setMessage(error.response.data.message);
-      } else {
-        setMessage('An error occurred while saving address');
-      }
+      setMessage('Failed to save address. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -173,16 +165,16 @@ const AddressForm = ({ onAddressSubmit, onCancel }) => {
           </div>
 
           <div className="form-row">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="auth-button secondary"
               onClick={onCancel}
               disabled={loading}
             >
               Cancel
             </button>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="auth-button"
               disabled={loading}
             >

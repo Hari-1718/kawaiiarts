@@ -1,9 +1,92 @@
 /* CSS Variables for theming */
-/* Variables removed - see index.css */
+:root {
+  /* Light Mode (Default) */
+  --primary-bg: #f6fbfc;
+  --secondary-bg: #ecf7f9;
 
+  /* Global Accent (overridable) */
+  --accent-color: #a855f7;
+  --hover-blue: #c084fc;
+  --accent-blue: #b7e3ed;
+  --accent-mint: #d8f6f0;
+  --accent-cream: #faf8f1;
 
+  --text-color: #2f2f2f;
+  --heading-color: #244d5f;
 
-/* Global styles */
+  --shadow-soft: rgba(0, 0, 0, 0.05);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+  --hover-glow: rgba(183, 227, 237, 0.5);
+
+  /* Navbar specific (from navbar.css) */
+  --bg-navbar: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  --navbar-text: #1f2937;
+  --navbar-brand: #581c87;
+  --brand-color: var(--navbar-brand);
+  --navbar-hamburger-bg: rgba(255, 255, 255, 0.9);
+
+  /* Common */
+  --rounded: 18px;
+  --container-max-width: 1200px;
+  --section-spacing: 4rem;
+
+  /* Footer Specific (Light Mode) */
+  --footer-primary: #581c87;
+  --footer-secondary: #7c3aed;
+  --footer-accent: #a855f7;
+  --footer-light: #f3e8ff;
+  --footer-text: #1f2937;
+  --footer-text-light: #6b7280;
+  --footer-white: #ffffff;
+  --footer-border: #e5e7eb;
+  --footer-shadow: rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, #581c87, #7c3aed);
+  --gradient-secondary: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+
+  /* Card backgrounds */
+  --card-bg: #fffffffa;
+}
+
+[data-theme='dark'] {
+  /* Dark Mode Overrides */
+  --primary-bg: #0f172a;
+  --secondary-bg: #111827;
+
+  /* Global Accent (overridable) */
+  --accent-color: #a855f7;
+  --hover-blue: #7dd3fc;
+  --accent-blue: #38bdf8;
+  /* Brighter blue for dark mode */
+  --accent-mint: #1e293b;
+  /* Dark card bg */
+  --accent-cream: #1f2937;
+  /* Darker card bg */
+
+  --text-color: #cbd5e1;
+  --heading-color: #f1f5f9;
+
+  --shadow-soft: rgba(0, 0, 0, 0.4);
+  --shadow-hover: rgba(0, 0, 0, 0.6);
+  --hover-glow: rgba(56, 189, 248, 0.2);
+
+  /* Navbar specific overrides */
+  --bg-navbar: linear-gradient(135deg, #1e1b4b, #312e81);
+  --navbar-text: #e2e8f0;
+  --navbar-brand: #ffffff;
+  --brand-color: var(--navbar-brand);
+  --navbar-hamburger-bg: rgba(30, 41, 59, 0.9);
+
+  /* Footer Dark Mode */
+  --footer-primary: #1e1b4b;
+  --footer-secondary: #312e81;
+  --footer-light: #94a3b8;
+  --footer-white: #e2e8f0;
+  --gradient-primary: linear-gradient(135deg, #0f172a, #1e1b4b);
+  --gradient-secondary: linear-gradient(135deg, #1e293b, #334155);
+
+  --card-bg: #1e293b;
+}
+
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
