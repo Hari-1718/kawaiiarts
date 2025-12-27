@@ -1,23 +1,20 @@
-
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, 'config.env') });
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const authRoutes = require('./routes/auth.js');
+const userRoutes = require('./routes/user.js');
+const orderRoutes = require('./routes/order.js');
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://hariprasadchinimilli:Hard%402003@kawaiiartscluster.tqymdsc.mongodb.net/?appName=KawaiiartsCluster')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB successfully');
   })
   .catch((error) => {
     console.error('MongoDB connection error:', error);
   });
-const cors = require('cors');
-const dotenv = require('dotenv');
-const authRoutes = require('./routes/auth.js');
-const userRoutes = require('./routes/user.js');
-const orderRoutes = require('./routes/order.js');
-
-// Load environment variables
-dotenv.config({ path: './config.env' });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
