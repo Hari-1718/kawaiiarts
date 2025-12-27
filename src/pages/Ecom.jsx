@@ -57,6 +57,7 @@ const Ecommerce = () => {
   const [wishlist, setWishlist] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [showOrders, setShowOrders] = useState(false);
+  const [showWishlist, setShowWishlist] = useState(false);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -100,7 +101,7 @@ const Ecommerce = () => {
       icon: (
         <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
-      onClick: () => { setShowCart(false); setShowOrders(false); }
+      onClick: () => { setShowCart(false); setShowOrders(false); setShowWishlist(false); }
     },
     {
       label: "My Cart",
@@ -108,7 +109,7 @@ const Ecommerce = () => {
       icon: (
         <IconShoppingBag className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
-      onClick: () => { setShowCart(true); setShowOrders(false); }
+      onClick: () => { setShowCart(true); setShowOrders(false); setShowWishlist(false); }
     },
     {
       label: "My Orders",
@@ -116,7 +117,7 @@ const Ecommerce = () => {
       icon: (
         <IconTruckDelivery className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
-      onClick: () => { setShowOrders(true); setShowCart(false); }
+      onClick: () => { setShowOrders(true); setShowCart(false); setShowWishlist(false); }
     },
     {
       label: "Wishlist",
@@ -124,7 +125,7 @@ const Ecommerce = () => {
       icon: (
         <IconHeart className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
-      onClick: () => { setShowCart(false); setShowOrders(false); }
+      onClick: () => { setShowWishlist(true); setShowCart(false); setShowOrders(false); }
     },
     {
       label: "Logout",
@@ -231,14 +232,20 @@ const Ecommerce = () => {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
+    setMessage('Added to bag!');
+    setTimeout(() => setMessage(''), 2000);
   };
 
   const addToWishlist = (product) => {
     setWishlist(prev => {
       const exists = prev.find(item => item.id === product.id);
       if (exists) {
+        setMessage('Removed from wishlist');
+        setTimeout(() => setMessage(''), 2000);
         return prev.filter(item => item.id !== product.id);
       }
+      setMessage('Added to wishlist');
+      setTimeout(() => setMessage(''), 2000);
       return [...prev, product];
     });
   };
@@ -297,15 +304,15 @@ const Ecommerce = () => {
       <div className="flex flex-1 flex-col overflow-y-auto h-full bg-white dark:bg-neutral-900">
         <div className="p-2 md:p-10 border border-neutral-200 dark:border-neutral-700 rounded-tl-2xl flex-1 bg-white dark:bg-neutral-900">
           <div className="shop-header">
-            <h1>Shop Products</h1>
+            <h1>{showWishlist ? 'My Wishlist' : showCart ? 'Shopping Bag' : showOrders ? 'Order History' : 'Shop Products'}</h1>
             {message && (
-              <div className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>
+              <div className={`message ${message.includes('successfully') || message.includes('Added') ? 'success' : 'error'}`}>
                 {message}
               </div>
             )}
           </div>
 
-          {/* Content Logic (Cart, Orders, or Products) */}
+          {/* Content Logic */}
           {showCart ? (
             <div className="cart-sidebar-embedded w-full max-w-4xl mx-auto">
               <div className="cart-header">
@@ -360,6 +367,37 @@ const Ecommerce = () => {
                 )}
               </div>
             </div>
+          ) : showWishlist ? (
+            <div className="shop-grid">
+              {wishlist.length === 0 ? (
+                <div className="empty-orders w-full col-span-full"><p>Your wishlist is empty</p><button className="continue-shopping-btn" onClick={() => setShowWishlist(false)}>Explore Products</button></div>
+              ) : (
+                wishlist.map((product) => (
+                  <div className="shop-item" key={product.id}>
+                    <div className="product-image">
+                      <img src={product.image} alt={product.description} />
+                      <div className="product-overlay">
+                        <button className="wishlist-btn-overlay" onClick={() => addToWishlist(product)}>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div className="product-info">
+                      <h3>{product.name}</h3>
+                      <p className="product-description">{product.description}</p>
+                      <div className="product-price-container">
+                        {product.discount ? <><p className="product-price">₹{product.price}</p><p className="original-price">₹{product.originalPrice}</p><span className="discount-badge">{product.discount}% OFF</span></> : <p className="product-price">₹{product.price}</p>}
+                      </div>
+                      <p className="stock-status">{product.inStock ? '✅ In Stock' : '❌ Out of Stock'}</p>
+                      <div className="product-actions">
+                        <button className="add-to-cart-btn" onClick={() => addToCart(product)} disabled={!product.inStock}>Add to Bag</button>
+                        <a href={`https://wa.me/918019824995?text=Hi, I am interested in ${encodeURIComponent(product.name)}!`} target="_blank" rel="noopener noreferrer" className="buy-now-btn">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
           ) : (
             <div className="shop-grid">
               {products.map((product) => (
@@ -407,7 +445,7 @@ export const Logo = () => {
       href="#"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
-      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
+      <img src="/kawaiiarts logo.jpg" className="h-7 w-8 shrink-0 rounded-lg object-cover" alt="Logo" />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -424,7 +462,7 @@ export const LogoIcon = () => {
       href="#"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
-      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
+      <img src="/kawaiiarts logo.jpg" className="h-7 w-8 shrink-0 rounded-lg object-cover" alt="Logo" />
     </a>
   );
 };

@@ -49,7 +49,7 @@ export default function Auth() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
-                <div className="shadow-input w-full rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black relative">
+                <div className="shadow-input w-full rounded-2xl bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black relative mx-4 sm:mx-0">
                     <button
                         onClick={() => navigate('/')}
                         className="absolute top-4 left-4 p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
