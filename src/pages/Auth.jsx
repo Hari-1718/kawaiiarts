@@ -5,6 +5,7 @@ import { cn } from "../lib/utils";
 import {
     IconBrandGithub,
     IconBrandGoogle,
+    IconArrowLeft,
 } from "@tabler/icons-react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -48,11 +49,19 @@ export default function Auth() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
-                <div className="shadow-input w-full rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
-                    <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+                <div className="shadow-input w-full rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black relative">
+                    <button
+                        onClick={() => navigate('/')}
+                        className="absolute top-4 left-4 p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                        title="Back to Home"
+                    >
+                        <IconArrowLeft className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+                    </button>
+
+                    <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 text-center mt-6">
                         {isLogin ? "Welcome Back to KawaiiArts" : "Welcome to KawaiiArts"}
                     </h2>
-                    <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+                    <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300 text-center">
                         {isLogin
                             ? "Login to access your account"
                             : "Sign up to start shopping"}
